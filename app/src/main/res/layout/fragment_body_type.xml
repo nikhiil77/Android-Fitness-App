@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Progress Bar: Positioned Slightly Below & Increased Thickness -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:progress="2"
+        android:max="2"
+        android:progressTint="@color/black"
+        android:indeterminateOnly="false"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"/>
+
+    <!-- Step Indicator -->
+    <TextView
+        android:id="@+id/stepIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 of 2"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"/>
+
+    <!-- Content Wrapper Centered -->
+    <LinearLayout
+        android:id="@+id/contentWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Body Type"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Body Type Selection -->
+        <RadioGroup
+            android:id="@+id/bodyTypeGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/radioEctomorph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ectomorph (Lean)"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+            <RadioButton
+                android:id="@+id/radioMesomorph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mesomorph (Athletic)"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+
+            <RadioButton
+                android:id="@+id/radioEndomorph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endomorph (Bulkier)"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- Buttons Positioned at the Bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp">
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:background="@color/black"/>
+
+        <View android:layout_width="20dp" android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:background="@color/black"/>
+    </LinearLayout>
+
+</RelativeLayout>

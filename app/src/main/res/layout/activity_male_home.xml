@@ -1,0 +1,185 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activities.MaleHomeActivity">
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Workouts Title -->
+            <TextView
+                android:id="@+id/tv_workouts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Workouts"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"/>
+
+            <!-- Search Layout -->
+            <LinearLayout
+                android:id="@+id/search_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_workouts"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/search_background"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="8dp">
+
+                    <SearchView
+                        android:id="@+id/search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:queryHint="Search workouts..."
+                        android:iconifiedByDefault="false"
+                        android:inputType="text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"/>
+
+                    <ImageView
+                        android:id="@+id/search_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/search"
+                        app:tint="@color/primaryColor"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_results_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:maxHeight="400dp"
+                    android:visibility="gone"
+                    android:clipToPadding="false"
+                    android:padding="4dp"
+                    android:background="@drawable/search_results_bg"
+                    android:elevation="8dp"/>
+            </LinearLayout>
+
+            <!-- Calendar Container -->
+            <LinearLayout
+                android:id="@+id/calendar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_layout"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@color/light_gray">
+
+                <!-- Month Navigation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btn_prev_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="&#60;"
+                        android:textSize="20sp"
+                        android:minWidth="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tv_month_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <Button
+                        android:id="@+id/btn_next_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="&#62;"
+                        android:textSize="20sp"
+                        android:minWidth="48dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+                <!-- Week Days -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SUN" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="MON" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TUE" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="WED" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="THU" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="FRI" android:gravity="center" android:textSize="14sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="SAT" android:gravity="center" android:textSize="14sp"/>
+                </LinearLayout>
+
+                <!-- Dates Horizontal Scroll -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/calendar_dates_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"/>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- Workout Grid -->
+            <GridView
+                android:id="@+id/grid_workouts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/calendar_container"
+                android:numColumns="2"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
+                android:padding="10dp"/>
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        app:labelVisibilityMode="labeled"/>
+</LinearLayout>

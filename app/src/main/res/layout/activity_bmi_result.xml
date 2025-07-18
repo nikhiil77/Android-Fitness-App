@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+    <!-- Result Heading -->
+    <TextView
+        android:id="@+id/resultHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Circular Progress Bar -->
+    <RelativeLayout
+        android:id="@+id/progressContainer"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/resultHeading"
+        android:layout_marginTop="30dp">
+
+        <!-- Background Circle -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circular_progress_background"/>
+
+        <!-- Foreground Progress Circle -->
+        <View
+            android:id="@+id/progressForeground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/circular_progress_foreground"/>
+
+        <!-- BMI Value Display -->
+        <TextView
+            android:id="@+id/bmiValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!-- BMI Category -->
+    <TextView
+        android:id="@+id/bmiCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/progressContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Lottie Animation for Dynamic BMI Display -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/bmiAnimation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/bmiCategory"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/bmi_progress_animation"/> <!-- Replace with your Lottie animation file -->
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="18sp"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:elevation="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>

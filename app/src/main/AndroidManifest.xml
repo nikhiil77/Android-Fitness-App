@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.androidfitness">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidFitness"
+        tools:targetApi="31">
+
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidFitness">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AndroidFitness" />
+
+
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true"
+            android:label="Sign Up"
+            android:theme="@style/Theme.AndroidFitness" />
+
+
+        <activity
+            android:name=".activities.MaleHomeActivity"
+            android:label="Male Home"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+
+
+        <activity android:name=".activities.FemaleHomeActivity"
+            android:exported="false" />
+
+
+        <activity android:name=".ProfileSetupActivity" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:label="Profile"
+            android:theme="@style/Theme.AndroidFitness" />
+
+        <activity android:name=".BMIActivity" />
+
+        <activity android:name=".BMIResultActivity" />
+
+        <activity android:name=".ViewProfileActivity" />
+
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="true" />
+
+        <activity android:name=".activities.WorkoutActivity"/>
+        <activity android:name=".activities.ExerciseActivity"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".activities.ExerciseDetailsActivity"
+            android:label="@string/exercise_details"
+            android:parentActivityName=".activities.WorkoutActivity">
+
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.WorkoutActivity" />
+        </activity>
+
+        <activity
+            android:name=".AdminLoginActivity"
+            android:label="Admin Login"
+           />
+
+
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:label="Admin Dashboard"
+           />
+        <activity
+            android:name=".UserListActivity"
+            android:label="User Management"
+            android:parentActivityName=".AdminLoginActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminLoginActivity" />
+        </activity>
+        <activity
+            android:name=".activities.AddWorkoutActivity"
+            android:label="Add New Exercise"
+            android:parentActivityName=".activities.WorkoutActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.WorkoutActivity" />
+        </activity>
+
+        <activity
+            android:name=".WorkoutListActivity"
+            android:label="Admin Workout Management"
+            android:parentActivityName=".AdminDashboardActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AdminDashboardActivity" />
+        </activity>
+
+        <activity android:name=".activities.DeleteWorkoutActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.androidfitness.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+
+
+</manifest>
